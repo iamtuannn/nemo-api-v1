@@ -14,7 +14,7 @@ export const getNewsList = async (req, res) => {
 
 export const getNews = async (req, res) => {
   try {
-    const news = await NewsModel.find({ _id: req.params.id });
+    const news = await NewsModel.find({ titleUrl: req.params.url });
     res.status(200).json(news[0]);
   } catch (err) {
     res.status(500).json({ error: err });

@@ -6,7 +6,7 @@ const router = express.Router();
 router
   .get("/", getNewsList)
   .post("/", createNews)
-  .get("/:id", getNews)
+  .get("/:url", getNews)
   .post("/:id", updateNews)
   .delete("/:id", deleteNews);
 
