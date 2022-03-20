@@ -5,7 +5,7 @@ export const getNewsList = async (req, res) => {
     const news = await NewsModel.find();
     res.status(200).json({
       totalNews: news.length,
-      data: news
+      newsList: news
     });
   } catch (err) {
     res.status(500).json({ error: err });
