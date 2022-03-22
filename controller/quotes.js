@@ -5,7 +5,7 @@ export const getQuotes = async (req, res) => {
     const quotes = await QuoteModel.find();
     res.status(200).json({
       totalQuote: quotes.length,
-      data: quotes,
+      quotes,
     });
   } catch (err) {
     res.status(500).json({ error: err });

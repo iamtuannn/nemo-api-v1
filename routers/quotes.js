@@ -7,7 +7,7 @@ router
   .get("/", getQuotes)
   .post("/", createQuote)
   .get("/:id", getQuote)
-  .post("/:id", updateQuote)
+  .put("/:id", updateQuote)
   .delete("/:id", deleteQuote);
 
 export default router;
