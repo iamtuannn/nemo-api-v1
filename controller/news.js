@@ -12,18 +12,15 @@ export const getNewsList = async (req, res) => {
   }
 };
 
-export const getNewsByUrl = async (req, res) => {
-  try {
-    const news = await NewsModel.find({ titleUrl: req.params.url });
-    res.status(200).json(news[0]);
-  } catch (err) {
-    res.status(500).json({ error: err });
-  }
-};
 
-export const getNewsByID = async (req, res) => {
+export const getNews = async (req, res) => {
   try {
-    const news = await NewsModel.find({ _id: req.params.id });
+    const keyword = req.params.keyword;
+    if (keyword.includes("-")) {
+      const news = await NewsModel.find({ titleUrl: req.params.keyword });
+      res.status(200).json(news[0]);
+    }
+    const news = await NewsModel.find({ _id: req.params.keyword });
     res.status(200).json(news[0]);
   } catch (err) {
     res.status(500).json({ error: err });

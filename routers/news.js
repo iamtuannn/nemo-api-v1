@@ -1,13 +1,12 @@
 import express from "express";
-import { createNews, deleteNews, getNewsByID, getNewsByUrl, getNewsList, updateNews } from "../controller/news.js";
+import { createNews, deleteNews, getNews, getNewsList, updateNews } from "../controller/news.js";
 
 const router = express.Router();
 
 router
   .get("/", getNewsList)
   .post("/", createNews)
-  .get("/:id", getNewsByID)
-  .get("/:url", getNewsByUrl)
+  .get("/:keyword", getNews)
   .put("/:id", updateNews)
   .delete("/:id", deleteNews);
 
