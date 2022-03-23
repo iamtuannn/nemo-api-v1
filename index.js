@@ -3,7 +3,7 @@ import cors from "cors";
 import quotes from "./routers/quotes.js";
 import news from "./routers/news.js";
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -11,10 +11,16 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
-app.use("/quotes", quotes);
-app.use("/news", news);
+const allowList = [process.env.NEMO_CINEMA, process.env.NEMO_QUOTES, process.env.NEMO_DASHBOARD];
+
+const corsOptions = {
+  origin: allowList,
+};
+
+app.use("/quotes", cors(corsOptions), quotes);
+app.use("/news", cors(corsOptions), news);
 
 mongoose
   .connect(
