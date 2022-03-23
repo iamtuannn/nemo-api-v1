@@ -13,7 +13,12 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 // app.use(cors());
 
-const allowList = [process.env.NEMO_CINEMA, process.env.NEMO_QUOTES, process.env.NEMO_DASHBOARD];
+const allowList = [
+  "http://localhost:3000",
+  process.env.NEMO_CINEMA,
+  process.env.NEMO_QUOTES,
+  process.env.NEMO_DASHBOARD,
+];
 
 const corsOptions = {
   origin: allowList,
