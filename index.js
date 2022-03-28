@@ -14,6 +14,7 @@ app.use(express.json());
 // app.use(cors());
 
 const allowList = [
+  "http://192.168.1.34:3000",
   "http://localhost:3000",
   process.env.NEMO_CINEMA,
   process.env.NEMO_QUOTES,
