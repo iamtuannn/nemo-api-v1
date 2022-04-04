@@ -13,20 +13,20 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 // app.use(cors());
 
-const allowList = [
-  "http://192.168.1.34:3000",
-  "http://localhost:3000",
-  process.env.NEMO_CINEMA,
-  process.env.NEMO_QUOTES,
-  process.env.NEMO_DASHBOARD,
-];
+// const allowList = [
+//   "http://192.168.1.34:3000",
+//   "http://localhost:3000",
+//   process.env.NEMO_CINEMA,
+//   process.env.NEMO_QUOTES,
+//   process.env.NEMO_DASHBOARD,
+// ];
 
-const corsOptions = {
-  origin: allowList,
-};
+// const corsOptions = {
+//   origin: allowList,
+// };
 
-app.use("/quotes", cors(corsOptions), quotes);
-app.use("/news", cors(corsOptions), news);
+app.use("/quotes", cors(), quotes);
+app.use("/news", cors(), news);
 
 mongoose
   .connect(
